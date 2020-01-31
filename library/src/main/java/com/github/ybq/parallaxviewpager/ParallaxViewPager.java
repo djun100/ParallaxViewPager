@@ -145,7 +145,11 @@ public class ParallaxViewPager extends ViewPager {
         if (mMode == Mode.NONE) {
             return;
         }
-        if (getScrollX() % getWidth() == 0) {
+
+        int width = getWidth();
+        width = width == 0 ? getResources().getDisplayMetrics().widthPixels : width;
+
+        if (getScrollX() % width == 0) {
             return;
         }
         switch (mMode) {
